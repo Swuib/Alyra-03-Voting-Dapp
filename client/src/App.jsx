@@ -62,25 +62,6 @@ function App() {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user]);
 
-  useEffect(() => {
-    if (accounts !== null) {
-      if (accounts.length > 0 ) {
-        if (userInfo !== null) {
-          if (workflow === 5) {
-            if (accounts[0] !== owner) {
-              const fetchData = async () => {
-                const resWinner = await contract.methods.winningProposalID().call({ from: accounts[0] });
-                setWinner(resWinner);
-              };
-              fetchData();
-            };
-          };
-        };
-      };
-    };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [userInfo]);
-  
 
   useEffect(() => {
     if (accounts !== null ) {
