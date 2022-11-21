@@ -5,7 +5,9 @@
 ## Notes :
 
 For this exercise, I bet on your contract 'voting.sol' that I slightly modified by adding the function 'resetDataVote'.
-I let you discover the video for the final rendering, and if you wish it to make a turn, on the deployed version. 
+I let you discover the video for the final rendering, and if you wish it to make a turn, on the deployed version.
+
+After recording the video I added a filter according to the network on which they are located to limit access to the Göerli network
 
 ---
 
