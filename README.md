@@ -12,6 +12,9 @@ I let you discover the video for the final rendering, and if you wish it to make
 ## Short video presentation of the Dapp :
 
 
+[![Watch the video](https://img.youtube.com/vi/LpCtarxDl8M/maxresdefault.jpg)](https://youtu.be/LpCtarxDl8M)
+
+
 ---
 
 ## Website link :
