@@ -19,7 +19,7 @@ I let you discover the video for the final rendering, and if you wish it to make
 
 ## Website link :
 
-This Dapp is accessible for testing purpose at this address : https://alyra-03-voting-dapp-7zawjj2zf-swuib.vercel.app/
+This Dapp is accessible for testing purpose at this address : https://alyra-03-voting-dapp.vercel.app/
 
 ---
 
