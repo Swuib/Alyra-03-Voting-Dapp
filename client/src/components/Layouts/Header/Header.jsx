@@ -81,93 +81,96 @@ const Header = () => {
     
     return (
         <header>
-            {accounts.length > 0 && ((userErr !== "You're not a voter" && userErr === "")|| user === owner)&& (
+            {owner !== null && user !== null &&(
                 <>
-                <div className="left-header">
-                    <Link to='/' className="logo">
-                        <img src="./logo.png" alt="logo"width="40%" height="50%" />
-                    </Link>
-                    <div className="status-container">
-                        {workflow === 0 ? (
-                            <p className="status">Register Voters</p>
-                        ) : workflow === 1 ? (
-                            <p className="status">Proposal start</p>
-                        ) : workflow === 2 ? (
-                            <p className="status">Proposal End</p>
-                        ) : workflow === 3 ? (
-                            <p className="status">Voting Start</p>
-                        ) : workflow === 4 ? (
-                            <p className="status">Voting End</p>
-                        ) : workflow === 5 ? (
-                            <p className="status">{winner === "0" ? "Vote is null" : `Winning proposal ${winner}`}</p>
-                        ) : (
-                            <p className="status"></p>
-                        )}
-                        <progress id="progessbar" max="5" value={workflow}>{(workflow*10)/2}%</progress>
-                    </div>
-                </div>
-                <div className="midle-header">
-                    
-                    {user === owner ? (
+                    {accounts.length > 0 && ((userErr !== "You're not a voter" && userErr === "")|| user === owner)&& (
                         <>
-                            <Link to='/Proposal'>
-                                <button className="myButton">Proposal</button>
+                        <div className="left-header">
+                            <Link to='/' className="logo">
+                                <img src="./logo.png" alt="logo"width="40%" height="50%" />
                             </Link>
-                            { workflow === 0 ? (
-                                <Link to='/addUser'>
-                                    <button className="myButton">AddUser</button>
-                                </Link>
-                            ) : (
-                                <button className="myButton" disabled>AddUser</button>
-                            )}
-                            <Link to='/WorkFlow'>
-                                <button className="myButton">WorkFlow</button>
-                            </Link>
-                            {workflow === 4 && loading ? (
-                                <Loader size={"small"}/>
-                            ) : workflow === 4 ? (
-                                <button className="myButton" onClick={handleTally}>Tally vote</button>
-                            ) : (
-                                <button className="myButton" disabled>Tailly vote</button>
-                            )}
-                            {workflow === 5 && loading ? (
-                                <Loader size={"small"}/>
-                            ) : workflow === 5 ? (
-                                <button className="myButton" onClick={handleRestart}>Restart</button>
-                            ) : (
-                                <button className="myButton" disabled>Restart</button>
-                            )}
-                            <Link to='/Statistics'>
-                                    <button className="myButton">Statistics</button>
-                            </Link>
-                        </>
-
-                    ) : (
-                        <>
-                            {(workflow >= 1 && (userErr !== "You're not a voter" && userErr === "")) && (
-                                <Link to='/Proposal'>
-                                    <button className="myButton">Proposal</button>
-                                </Link>
-                            )}
-                            {(userErr !== "You're not a voter" && userErr === "") && (
-                                workflow === 1 ? (
-                                    <Link to='/addProposal'>
-                                        <button className="myButton">Register Proposal</button>
+                            <div className="status-container">
+                                {workflow === 0 ? (
+                                    <p className="status">Register Voters</p>
+                                ) : workflow === 1 ? (
+                                    <p className="status">Proposal start</p>
+                                ) : workflow === 2 ? (
+                                    <p className="status">Proposal End</p>
+                                ) : workflow === 3 ? (
+                                    <p className="status">Voting Start</p>
+                                ) : workflow === 4 ? (
+                                    <p className="status">Voting End</p>
+                                ) : workflow === 5 ? (
+                                    <p className="status">{winner === "0" ? "Vote is null" : `Winning proposal ${winner}`}</p>
+                                ) : (
+                                    <p className="status"></p>
+                                )}
+                                <progress id="progessbar" max="5" value={workflow}>{(workflow*10)/2}%</progress>
+                            </div>
+                        </div>
+                        <div className="midle-header">
+                            {user === owner ? (
+                                <>
+                                    <Link to='/Proposal'>
+                                        <button className="myButton">Proposal</button>
                                     </Link>
-                                ) : ("")
+                                    { workflow === 0 ? (
+                                        <Link to='/addUser'>
+                                            <button className="myButton">AddUser</button>
+                                        </Link>
+                                    ) : (
+                                        <button className="myButton" disabled>AddUser</button>
+                                    )}
+                                    <Link to='/WorkFlow'>
+                                        <button className="myButton">WorkFlow</button>
+                                    </Link>
+                                    {workflow === 4 && loading ? (
+                                        <Loader size={"small"}/>
+                                    ) : workflow === 4 ? (
+                                        <button className="myButton" onClick={handleTally}>Tally vote</button>
+                                    ) : (
+                                        <button className="myButton" disabled>Tailly vote</button>
+                                    )}
+                                    {workflow === 5 && loading ? (
+                                        <Loader size={"small"}/>
+                                    ) : workflow === 5 ? (
+                                        <button className="myButton" onClick={handleRestart}>Restart</button>
+                                    ) : (
+                                        <button className="myButton" disabled>Restart</button>
+                                    )}
+                                    <Link to='/Statistics'>
+                                            <button className="myButton">Statistics</button>
+                                    </Link>
+                                </>
+
+                            ) : (
+                                <>
+                                    {(workflow >= 1 && (userErr !== "You're not a voter" && userErr === "")) && (
+                                        <Link to='/Proposal'>
+                                            <button className="myButton">Proposal</button>
+                                        </Link>
+                                    )}
+                                    {(userErr !== "You're not a voter" && userErr === "") && (
+                                        workflow === 1 ? (
+                                            <Link to='/addProposal'>
+                                                <button className="myButton">Register Proposal</button>
+                                            </Link>
+                                        ) : ("")
+                                    )}
+                                </>
                             )}
+                        </div>
+                        <div className="rigth-header">
+                            <div className="add-container">
+                                {accounts.length > 0 ? (
+                                    <p className="add">{accounts[0].slice(0, -35)}...{accounts[0].slice(-6)}</p>
+                                ) : (
+                                    <p className="add">Not connected</p>
+                                )}
+                            </div>
+                        </div>
                         </>
                     )}
-                </div>
-                <div className="rigth-header">
-                    <div className="add-container">
-                        {accounts.length > 0 ? (
-                            <p className="add">{accounts[0].slice(0, -35)}...{accounts[0].slice(-6)}</p>
-                        ) : (
-                            <p className="add">Not connected</p>
-                        )}
-                    </div>
-                </div>
                 </>
             )}
         </header>
