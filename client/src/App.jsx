@@ -9,7 +9,7 @@ import { loadFull } from "tsparticles";
 import { useLocalStorage } from "./components/Utils/Utils";
 
 function App() {
-  const { state: { contract, accounts } } = useEth();
+  const { state: { contract, accounts, networkID } } = useEth();
 
   const [owner, setOwner] = useLocalStorage("owner",null);
   const [user, setUser] = useLocalStorage("user", null);
@@ -23,7 +23,7 @@ function App() {
 
   useEffect(() => {
     if (contract !== null && accounts !== null) {
-      if (contract !== undefined && accounts !== undefined) {
+      if (networkID === 5) {
         if (accounts.length > 0 ) {
           const fetchData = async () => {
             const resOwner = await contract.methods.owner().call({ from: accounts[0] });
@@ -64,7 +64,6 @@ function App() {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user]);
 
-
   useEffect(() => {
     if (accounts !== null ) {
       if (accounts.length > 0 ) {
@@ -73,6 +72,7 @@ function App() {
             setProposalData([]);
             for (let i = 0; i < proposalId.length; i++) {
               await contract.methods.getOneProposal(i).call({ from: accounts[0] }).then(res => {
+                console.log(res);
                 if (res[0] === "GENESIS")
                   setProposalData(prevArray => [...prevArray, {userProposal:owner, description:res[0],voteCount:res[1], Id:i}]);
                 else 
