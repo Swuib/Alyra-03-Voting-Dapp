@@ -66,12 +66,14 @@ function App() {
     if (accounts !== null) {
       if (accounts.length > 0 ) {
         if (userInfo !== null) {
-          if (accounts[0] !== owner) {
-            const fetchData = async () => {
-              const resWinner = await contract.methods.winningProposalID().call({ from: accounts[0] });
-              setWinner(resWinner);
+          if (workflow === 5) {
+            if (accounts[0] !== owner) {
+              const fetchData = async () => {
+                const resWinner = await contract.methods.winningProposalID().call({ from: accounts[0] });
+                setWinner(resWinner);
+              };
+              fetchData();
             };
-            fetchData();
           };
         };
       };
