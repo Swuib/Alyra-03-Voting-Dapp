@@ -23,18 +23,20 @@ function App() {
 
   useEffect(() => {
     if (contract !== null && accounts !== null) {
-      if (accounts.length > 0 ) {
-        const fetchData = async () => {
-          const resOwner = await contract.methods.owner().call({ from: accounts[0] });
-          const resWorkflow = await contract.methods.workflowStatus().call({ from: accounts[0] });
-          setOwner(resOwner.toLowerCase());
-          setUser(accounts[0].toLowerCase());
-          setWorkFlow(parseInt(resWorkflow));
-        };
-        fetchData();
-      } else {
-        setUser(null);
-        setOwner(null);
+      if (contract !== undefined && accounts !== undefined) {
+        if (accounts.length > 0 ) {
+          const fetchData = async () => {
+            const resOwner = await contract.methods.owner().call({ from: accounts[0] });
+            const resWorkflow = await contract.methods.workflowStatus().call({ from: accounts[0] });
+            setOwner(resOwner.toLowerCase());
+            setUser(accounts[0].toLowerCase());
+            setWorkFlow(parseInt(resWorkflow));
+          };
+          fetchData();
+        } else {
+          setUser(null);
+          setOwner(null);
+        }
       }
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
