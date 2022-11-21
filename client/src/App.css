@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Koulen&family=Lato&family=Nunito&family=Playfair+Display:ital@1&family=Prata&family=Raleway:ital,wght@1,100&family=Roboto&family=Roboto+Condensed&family=Teko&display=swap');
+html {
+  font-size: 10px;
+  font-family: sans-serif;
+  overflow: hidden;
+  background-color: black;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+#root {
+  width: 100vw;
+  height: 100vh;
+}
+#App {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  --primary-color: #1266cc;
+  --secondary-color: #f96400;
+  --flash-color: rgb(89, 255, 0);
+  --gray: #999;
+  --light-gray: #e0e0e0;
+  --dark-gray: #777;
+}
+#App .container {
+  width: 40%;
+  min-width: 60rem;
+  max-width: 75rem;
+  height: 100%;
+}
+code {
+  display: block;
+  white-space: pre-wrap;
+  padding: 1.2rem 2rem;
+  border-radius: 1rem;
+  background-color: var(--light-gray);
+  font-size: 1.4rem;
+}
+code span {
+  transition: all 0.3s;
+}
+code span.primary-color {
+  color: var(--primary-color);
+}
+code span.secondary-color {
+  color: var(--secondary-color);
+}
+code span.dim-color {
+  color: var(--gray);
+}
+code span.flash {
+  background-color: var(--flash-color);
+}
+details {
+  margin: 1.6rem 0;
+  padding: 0.5rem 2rem 0.5rem 0;
+  border: 1px solid var(--light-gray);
+  border-radius: 1rem;
+}
+details :not(summary, span) {
+  margin-left: 2.55rem;
+}
+details summary {
+  padding: 1.2rem;
+  cursor: pointer;
+}
+p,
+details code {
+  margin-top: 1rem;
+  margin-bottom: 1.4rem;
+}
+p {
+  line-height: 2.6rem;
+}
+p span.code {
+  font-family: monospace;
+  color: var(--gray);
+}
+.myButton{
+  font-family: Roboto Condensed;
+  font-weight: 0;
+  font-size: 14px;
+  color: #fff;
+  background-color: #000000;
+  padding: 10px 30px;
+  border: solid #d5d5d5 1px;
+  box-shadow: rgb(0, 0, 0) 0px 0px 0px 0px;
+  border-radius: 2px;
+  transition : 377ms;
+  transform: translateY(0);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer;
+  margin: 5px;
+  z-index: 900000000000000;
+}
+.myButton:hover{
+  transition : 377ms;
+  padding: 10px 40px;
+  transform : translateY(-0px);
+  background-color: #fffefe;
+  color: #292929;
+  border: solid 2px #d4d4d4;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+  color: #000000;
+}
+.myButton:disabled {
+	background: #686868;
+  color: #c7c7c7;
+}
+button, input, a {
+  z-index: 900000000000000;
+}
+h1 {
+  color: white;
+}
+img {
+  filter: invert(100%);
+  -webkit-filter: invert(100%);
+}

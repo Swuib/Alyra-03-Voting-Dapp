@@ -1,0 +1,192 @@
+.stat-container {
+    height: 468px;
+    width: 80%;
+    border: 2px solid #d5d5d5;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    display: grid;
+    grid-template-columns: 40% 60%;
+    grid-template-rows: 1fr;
+    font-size: initial;
+    background-color: #292929;
+    z-index: 100000000;
+}
+.stat-add{
+    height: inherit;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 15% 85%;
+    border-right: #d5d5d5 1px solid;
+}
+.stat-add-container-header {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    font-size: larger;
+    color: #d5d5d5;
+    font-family: Roboto Condensed;
+    border-bottom: black 1px solid;
+}
+.th-add-left {
+    border-radius: 2px 0px 0px 0px;
+    background: #414141;
+    width: 80%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* .th-add-midle {
+    background: #414141;
+    width: 20%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
+.th-add-rigth {
+    border-radius: 0px 2px 0px 0px;
+    background: #414141;
+    width: 20%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.stat-add-container-data {
+    overflow: auto;
+    height: 100%;
+    font-family: Roboto Condensed;
+    color: #d5d5d5;
+}
+.data-add {
+    display: flex;
+    height: 50px;
+}
+.tr-add-left {
+    width: 80%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: #d5d5d5 1px solid;
+    border-right: #d5d5d5 1px solid;
+}
+/* .tr-add-midle {
+    width: 20%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: #d5d5d5 1px solid;
+    border-left: #d5d5d5 1px solid;
+    border-right: #d5d5d5 1px solid;
+} */
+.tr-add-rigth {
+    width: 20%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: #d5d5d5 1px solid;
+}
+
+
+
+
+.stat-proposal {
+    height: inherit;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 15% 85%;
+}
+.stat-proposal-container-header {
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 52% 20% 14% 14%;
+    align-items: center;
+    font-size: larger;
+    color: #d5d5d5;
+    font-family: Roboto Condensed;
+    border-bottom: black 1px solid;
+}
+.th-proposal-left {
+    border-radius: 2px 0px 0px 0px;
+    background: #414141;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.th-proposal-midle {
+    background: #414141;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.th-proposal-rigth {
+    border-radius: 0px 2px 0px 0px;
+    background: #414141;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.stat-proposal-container-data {
+    overflow: auto;
+    height: 100%;
+    font-family: Roboto Condensed;
+    color: #d5d5d5;
+}
+.data-proposal {
+    display: grid;
+    grid-template-columns: 52% 20% 14% 14%;
+    height: 50px;
+}
+.tr-proposal-left {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: #d5d5d5 1px solid;
+    border-right: #d5d5d5 1px solid;
+}
+.tr-proposal-midle-left {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: #d5d5d5 1px solid;
+    border-left: #d5d5d5 1px solid;
+    border-right: #d5d5d5 1px solid;
+}
+.tr-proposal-midle {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: #d5d5d5 1px solid;
+    border-right: #d5d5d5 1px solid;
+}
+.tr-proposal-rigth {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: #d5d5d5 1px solid;
+}

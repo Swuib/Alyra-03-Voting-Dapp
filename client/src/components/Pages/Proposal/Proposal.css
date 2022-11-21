@@ -1,0 +1,22 @@
+main {
+    height: 90vh;
+    background-color: rgb(0, 0, 0);
+    display: flex;
+    flex-wrap: wrap;
+    z-index: 100000000;
+}
+.no-proposal-container{
+    height: 50%;
+    width: 50%;
+    border: 5px solid #222123;
+    border: 2px solid #d5d5d5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #292929;
+    z-index: 100000000;
+}
+.no-proposal {
+    font-size: x-large;
+    color: white;
+}

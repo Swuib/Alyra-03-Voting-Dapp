@@ -1,0 +1,86 @@
+header {
+    height: 10vh;
+    width: 100vw;
+    min-height: 60px;
+    display: grid;
+    grid-template-columns: 20% 60% 20%;
+    z-index: 200000000;
+}
+
+.left-header {
+    display: grid;
+    grid-template-columns: 20% 80%;
+    align-items: center;
+    justify-content: space-around;
+    background: linear-gradient(0deg, rgba(0,0,0,1) 0%, #292929 5%);
+    z-index: 200000000;
+}
+.logo {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.status-container {
+    min-width: 60%;
+    height: 60%;
+    background-color: #000000;
+    border: solid #d5d5d5 1px;
+    border-radius:2px;
+    font-family: Roboto Condensed;
+	font-size:20px;
+	font-weight:bold;
+    color: #fff;
+	text-decoration:none;
+    user-select: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.status {
+    height: 90%;
+    margin: 0;
+    padding-top: 3%;
+}
+#progessbar {
+    background-color: #00e000;
+    height: 10%;
+    width: 100%;
+}
+.midle-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(0deg, rgba(0,0,0,1) 0%, #292929 5%);
+    z-index: 200000000;
+}
+.rigth-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(0deg, rgba(0,0,0,1) 0%, #292929 5%);
+    z-index: 200000000;
+}
+.add-container {
+    width: 80%;
+    height: 60%;
+    background-color: #000000;
+    border: solid #d5d5d5 1px;
+    border-radius:2px;
+    font-family: Roboto Condensed;
+	font-size:20px;
+	font-weight:bold;
+    color: #fff;
+	text-decoration:none;
+    user-select: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.add {
+    height: 50%;
+    font-size: 15px;
+    margin: 0;
+}
