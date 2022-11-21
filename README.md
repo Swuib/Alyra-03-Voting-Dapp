@@ -125,7 +125,6 @@ Summary
 * Open a second window in the VSC terminal and type the following command:  
 
   ```
-  $ cd ../
   $ cd truffle
   $ npm install
   $ truffle compile
@@ -134,7 +133,6 @@ Summary
 * Now open a third terminal window and run the following command:  
 
   ```
-  $ cd ../
   $ cd client
   $ npm start
   ```
