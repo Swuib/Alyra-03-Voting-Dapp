@@ -71,7 +71,6 @@ function App() {
             setProposalData([]);
             for (let i = 0; i < proposalId.length; i++) {
               await contract.methods.getOneProposal(i).call({ from: accounts[0] }).then(res => {
-                console.log(res);
                 if (res[0] === "GENESIS")
                   setProposalData(prevArray => [...prevArray, {userProposal:owner, description:res[0],voteCount:res[1], Id:i}]);
                 else 
