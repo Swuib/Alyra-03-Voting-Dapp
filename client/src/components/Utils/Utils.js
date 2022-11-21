@@ -9,7 +9,7 @@ export const disable = (workflow, currentWorkflow) => {
 
 const getStorageValue =(key, defaultValue) => {
     const saved = localStorage.getItem(key);
-    const initial = JSON.parse(saved);
+    const initial = saved !== undefined  ? JSON.parse(saved) : defaultValue;
     return initial || defaultValue;
 };
   
