@@ -1,4 +1,3 @@
-// import {useState, useEffect} from 'react';
 import "./Header.css";
 import { Link } from 'react-router-dom';
 import UidContext from "../../../contexts/App/AppContext";
@@ -10,13 +9,13 @@ import toast from 'react-hot-toast';
 
 
 const Header = () => {
-    const { state: { contract, accounts } } = useEth();
+    const { state: { contract, accounts, networkID } } = useEth();
     const { owner, user,RegisteredAdress, userErr, workflow, setWorkFlow, winner, setWinner, setProposalData, setProposalID, setRegisteredAdress } = useContext(UidContext);
     
     const [loading, setLoading] = useState(false);
 
     useEffect(() => {
-    }, [accounts, workflow]);
+    }, [user, workflow]);
 
     const handleTally = async ()  => {
         setLoading(true)
@@ -81,7 +80,7 @@ const Header = () => {
     
     return (
         <header>
-            {owner !== null && user !== null &&(
+            {networkID === 5 && (
                 <>
                     {accounts.length > 0 && ((userErr !== "You're not a voter" && userErr === "")|| user === owner)&& (
                         <>
@@ -109,6 +108,7 @@ const Header = () => {
                             </div>
                         </div>
                         <div className="midle-header">
+                            
                             {user === owner ? (
                                 <>
                                     <Link to='/Proposal'>
