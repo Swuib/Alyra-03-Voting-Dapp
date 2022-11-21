@@ -10,7 +10,7 @@
     "react-dom": "^18.2.0",
     "react-hot-toast": "^2.4.0",
     "react-router-dom": "^6.4.3",
-    "react-scripts": "^4.0.3",
+    "react-scripts": "^5.0.1",
     "react-tsparticles": "^2.5.3",
     "tsparticles": "^2.5.3",
     "web3": "^1.7.5"
