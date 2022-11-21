@@ -16,7 +16,7 @@ const Header = () => {
     const [loading, setLoading] = useState(false);
 
     useEffect(() => {
-    }, [user, workflow]);
+    }, [accounts, workflow]);
 
     const handleTally = async ()  => {
         setLoading(true)
