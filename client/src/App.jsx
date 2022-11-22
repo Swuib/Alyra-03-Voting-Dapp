@@ -9,7 +9,7 @@ import { loadFull } from "tsparticles";
 import { useLocalStorage } from "./components/Utils/Utils";
 
 function App() {
-  const { state: { contract, accounts,networkID } } = useEth();
+  const { state: { contract, accounts } } = useEth();
 
   const [owner, setOwner] = useLocalStorage("owner",null);
   const [user, setUser] = useLocalStorage("user", null);
@@ -19,24 +19,22 @@ function App() {
   const [proposalId, setProposalID] = useLocalStorage("proposalId",[]);
   const [ProposalData, setProposalData] = useLocalStorage("ProposalData",[]);
   const [RegisteredAdress, setRegisteredAdress] = useLocalStorage("RegisteredAdress",[]);
-  const [winner, setWinner] = useLocalStorage("winner",0);
+  const [winner, setWinner] = useLocalStorage("winner",undefined);
 
   useEffect(() => {
     if (contract !== null && accounts !== null) {
-      if (networkID === 5) {
-        if (accounts.length > 0 ) {
-          const fetchData = async () => {
-            const resOwner = await contract.methods.owner().call({ from: accounts[0] });
-            const resWorkflow = await contract.methods.workflowStatus().call({ from: accounts[0] });
-            setOwner(resOwner.toLowerCase());
-            setUser(accounts[0].toLowerCase());
-            setWorkFlow(parseInt(resWorkflow));
-          };
-          fetchData();
-        } else {
-          setUser(null);
-          setOwner(null);
-        }
+      if (accounts.length > 0 ) {
+        const fetchData = async () => {
+          const resOwner = await contract.methods.owner().call({ from: accounts[0] });
+          const resWorkflow = await contract.methods.workflowStatus().call({ from: accounts[0] });
+          setOwner(resOwner.toLowerCase());
+          setUser(accounts[0].toLowerCase());
+          setWorkFlow(parseInt(resWorkflow));
+        };
+        fetchData();
+      } else {
+        setUser(null);
+        setOwner(null);
       }
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -63,6 +61,24 @@ function App() {
     };
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user]);
+
+  useEffect(() => {
+    if (accounts !== null) {
+      if (accounts.length > 0 ) {
+        if (userInfo !== null) {
+          if (accounts[0] !== owner) {
+            const fetchData = async () => {
+              const resWinner = await contract.methods.winningProposalID().call({ from: accounts[0] });
+              setWinner(resWinner);
+            };
+            fetchData();
+          };
+        };
+      };
+    };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [userInfo]);
+  
 
   useEffect(() => {
     if (accounts !== null ) {

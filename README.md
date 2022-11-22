@@ -5,7 +5,9 @@
 ## Notes :
 
 For this exercise, I bet on your contract 'voting.sol' that I slightly modified by adding the function 'resetDataVote'.
-I let you discover the video for the final rendering, and if you wish it to make a turn, on the deployed version. 
+I let you discover the video for the final rendering, and if you wish it to make a turn, on the deployed version.
+
+After recording the video I added a filter according to the network on which they are located to limit access to the Göerli network
 
 ---
 
@@ -19,7 +21,7 @@ I let you discover the video for the final rendering, and if you wish it to make
 
 ## Website link :
 
-This Dapp is accessible for testing purpose at this address : 
+This Dapp is accessible for testing purpose at this address : https://alyra-03-voting-dapp.vercel.app/
 
 ---
 
@@ -125,7 +127,6 @@ Summary
 * Open a second window in the VSC terminal and type the following command:  
 
   ```
-  $ cd ../
   $ cd truffle
   $ npm install
   $ truffle compile
@@ -134,7 +135,6 @@ Summary
 * Now open a third terminal window and run the following command:  
 
   ```
-  $ cd ../
   $ cd client
   $ npm start
   ```
