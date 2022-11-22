@@ -64,7 +64,7 @@ function App() {
 
   useEffect(() => {
     if (accounts !== null) {
-      if (accounts.length > 0 ) {
+      if (accounts.length > 0 && workflow === 5) {
         if (userInfo !== null) {
           if (accounts[0] !== owner) {
             const fetchData = async () => {
