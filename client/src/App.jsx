@@ -19,7 +19,7 @@ function App() {
   const [proposalId, setProposalID] = useLocalStorage("proposalId",[]);
   const [ProposalData, setProposalData] = useLocalStorage("ProposalData",[]);
   const [RegisteredAdress, setRegisteredAdress] = useLocalStorage("RegisteredAdress",[]);
-  const [winner, setWinner] = useLocalStorage("winner",undefined);
+  const [winner, setWinner] = useLocalStorage("winner",0);
 
   useEffect(() => {
     if (contract !== null && accounts !== null) {
