@@ -26,9 +26,9 @@ This Dapp is accessible for testing purpose at this address :
 ## Contract address on Göerli Test Network :
 
 ```
- 0x21952c1266804F8d0fdCB48f703e8B639a49c3D2
+ 0x9F6e0B55177adc9252C33B4bb18cdb56228EB286
 ```    
- Link : [goerli.etherscan](https://goerli.etherscan.io/address/0x21952c1266804f8d0fdcb48f703e8b639a49c3d2)
+ Link : [goerli.etherscan](https://goerli.etherscan.io/address/0x9F6e0B55177adc9252C33B4bb18cdb56228EB286)
 
 ---
 
@@ -50,24 +50,24 @@ Migrations dry-run (simulation)
 1_deploy_simple_voting.js
 =========================
 
-   Deploying 'Voting'
+   Replacing 'Voting'
    ------------------
-   > block number:        7990506
-   > block timestamp:     1668996127
+   > block number:        7997381
+   > block timestamp:     1669097247
    > account:             0x9B35Fa8639bB06712600840184c3707f0eBbF012
-   > balance:             0.35519266511282059
-   > gas used:            2318950 (0x236266)
-   > gas price:           2.500000889 gwei
+   > balance:             0.427953364648587172
+   > gas used:            2311323 (0x23449b)
+   > gas price:           55.050419266 gwei
    > value sent:          0 ETH
-   > total cost:          0.00579737706154655 ETH
+   > total cost:          0.127239300209148918 ETH
 
    -------------------------------------
-   > Total cost:     0.00579737706154655 ETH
+   > Total cost:     0.127239300209148918 ETH
 
 Summary
 =======
 > Total deployments:   1
-> Final cost:          0.00579737706154655 ETH
+> Final cost:          0.127239300209148918 ETH
 
 
 
@@ -82,28 +82,28 @@ Starting migrations...
 1_deploy_simple_voting.js
 =========================
 
-   Deploying 'Voting'
+   Replacing 'Voting'
    ------------------
-   > transaction hash:    0xad5909d699bb5655884f21f270ed9302a202cc370b0fd497e64bbf27540d767b
-   > Blocks: 1            Seconds: 12
-   > contract address:    0x21952c1266804F8d0fdCB48f703e8B639a49c3D2
-   > block number:        7990511
-   > block timestamp:     1668996144
+   > transaction hash:    0xb355e0a26615bcfab683b37882bac80de7ef806a536814dd78a339afa8ef0060
+   > Blocks: 0            Seconds: 4
+   > contract address:    0x9F6e0B55177adc9252C33B4bb18cdb56228EB286
+   > block number:        7997386
+   > block timestamp:     1669097256
    > account:             0x9B35Fa8639bB06712600840184c3707f0eBbF012
-   > balance:             0.35519266485773609
-   > gas used:            2318950 (0x236266)
-   > gas price:           2.500000999 gwei
+   > balance:             0.389532763539716044
+   > gas used:            2311323 (0x23449b)
+   > gas price:           71.673193802 gwei
    > value sent:          0 ETH
-   > total cost:          0.00579737731663105 ETH
+   > total cost:          0.165659901318020046 ETH
 
    > Saving artifacts
    -------------------------------------
-   > Total cost:     0.00579737731663105 ETH
+   > Total cost:     0.165659901318020046 ETH
 
 Summary
 =======
 > Total deployments:   1
-> Final cost:          0.00579737731663105 ETH
+> Final cost:          0.165659901318020046 ETH
 
 ```
 

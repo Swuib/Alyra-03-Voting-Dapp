@@ -9,7 +9,7 @@ import { loadFull } from "tsparticles";
 import { useLocalStorage } from "./components/Utils/Utils";
 
 function App() {
-  const { state: { contract, accounts } } = useEth();
+  const { state: { contract, accounts,networkID } } = useEth();
 
   const [owner, setOwner] = useLocalStorage("owner",null);
   const [user, setUser] = useLocalStorage("user", null);
@@ -19,27 +19,29 @@ function App() {
   const [proposalId, setProposalID] = useLocalStorage("proposalId",[]);
   const [ProposalData, setProposalData] = useLocalStorage("ProposalData",[]);
   const [RegisteredAdress, setRegisteredAdress] = useLocalStorage("RegisteredAdress",[]);
-  const [winner, setWinner] = useLocalStorage("winner",undefined);
+  const [winner, setWinner] = useLocalStorage("winner",0);
 
   useEffect(() => {
     if (contract !== null && accounts !== null) {
-      if (accounts.length > 0 ) {
-        const fetchData = async () => {
-          const resOwner = await contract.methods.owner().call({ from: accounts[0] });
-          const resWorkflow = await contract.methods.workflowStatus().call({ from: accounts[0] });
-          setOwner(resOwner.toLowerCase());
-          setUser(accounts[0].toLowerCase());
-          setWorkFlow(parseInt(resWorkflow));
-        };
-        fetchData();
-      } else {
-        setUser(null);
-        setOwner(null);
+      if (networkID === 5) {
+        if (accounts.length > 0 ) {
+          const fetchData = async () => {
+            const resOwner = await contract.methods.owner().call({ from: accounts[0] });
+            const resWorkflow = await contract.methods.workflowStatus().call({ from: accounts[0] });
+            setOwner(resOwner.toLowerCase());
+            setUser(accounts[0].toLowerCase());
+            setWorkFlow(parseInt(resWorkflow));
+          };
+          fetchData();
+        } else {
+          setUser(null);
+          setOwner(null);
+        }
       }
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [contract, accounts]);
-
+ 
   useEffect(() => {
     if (accounts!== null) {
       if (accounts.length > 0 ) {
@@ -63,24 +65,6 @@ function App() {
   }, [user]);
 
   useEffect(() => {
-    if (accounts !== null) {
-      if (accounts.length > 0 ) {
-        if (userInfo !== null) {
-          if (accounts[0] !== owner) {
-            const fetchData = async () => {
-              const resWinner = await contract.methods.winningProposalID().call({ from: accounts[0] });
-              setWinner(resWinner);
-            };
-            fetchData();
-          };
-        };
-      };
-    };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [userInfo]);
-  
-
-  useEffect(() => {
     if (accounts !== null ) {
       if (accounts.length > 0 ) {
         if(proposalId.length > 0 && workflow === 1 && user !== owner) {
@@ -88,7 +72,6 @@ function App() {
             setProposalData([]);
             for (let i = 0; i < proposalId.length; i++) {
               await contract.methods.getOneProposal(i).call({ from: accounts[0] }).then(res => {
-                console.log(res);
                 if (res[0] === "GENESIS")
                   setProposalData(prevArray => [...prevArray, {userProposal:owner, description:res[0],voteCount:res[1], Id:i}]);
                 else 

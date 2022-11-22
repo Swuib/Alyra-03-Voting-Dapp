@@ -37,6 +37,7 @@ contract Voting is Ownable {
 
 
     event VoterRegistered(address voterAddress); 
+    event VoterDeleted(address voterAddress); 
     event WorkflowStatusChange(WorkflowStatus previousStatus, WorkflowStatus newStatus);
     event ProposalRegistered(uint proposalId);
     event Voted (address voter, uint proposalId);
@@ -178,19 +179,28 @@ contract Voting is Ownable {
         return winningProposalID;
     }
 
+    // ::::::::::::: MODIFICATIONS ::::::::::::: //
+
     /// @notice Reset vote data
     /// @dev Must be called the owner of the contract. Emit a WorkflowStatusChange event.
-
-    function resetDataVote(address[] calldata _address) external onlyOwner {
+    function resetDataVote() external onlyOwner {
         require(workflowStatus == WorkflowStatus.VotesTallied, "Current status is not VotesTallied");
 
-        for (uint i = 0; i < _address.length; i++) {
-            delete voters[_address[i]];
-        }
         delete proposalsArray;
         winningProposalID = 0;
 
         workflowStatus = WorkflowStatus.RegisteringVoters;
         emit WorkflowStatusChange(WorkflowStatus.VotesTallied, WorkflowStatus.RegisteringVoters);
+    }
+
+    /// @notice Delete a voter
+    /// @dev Must be called the owner of the contract. Emit a VoterDeleted event.
+    /// @param _addr the address of the voter 
+    function deleteVoter(address _addr) external onlyOwner {
+        require(workflowStatus == WorkflowStatus.VotesTallied, "Current status is not VotesTallied");
+
+        delete voters[_addr];
+        
+        emit VoterDeleted(_addr);
     }
 }

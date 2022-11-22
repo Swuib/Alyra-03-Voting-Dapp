@@ -15,14 +15,15 @@ function EthProvider({ children }) {
           let accounts = await ethereum.request({method: 'eth_accounts'});
           return accounts;
         };
+        
         const accounts = await isMetaMaskConnected();
         const networkID = await web3.eth.net.getId();
         const { abi } = artifact;
         let address, contract;
-
         try {
           address = artifact.networks[networkID].address;
           contract = new web3.eth.Contract(abi, address);
+          
         } catch (err) {
           console.error(err);
         }
